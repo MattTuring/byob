@@ -1,8 +1,17 @@
 
 module.exports = {
+
+  development: {
+    client: 'pg',
+    connection: 'postgres://localhost/byob',
+    migrations: {
+      directory: './db/migrations'
+    },
+    useNullAsDefault: true
+  },
   production: {
   client: 'pg',
-  connection: 'postgres://lgeyeycsouljik:18c' + `?ssl=true`,
+  connection: process.env.DATABASE_URL + `?ssl=true`,
   migrations: {
     directory: './db/migrations'
   },
